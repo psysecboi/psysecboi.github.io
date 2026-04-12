@@ -3,7 +3,7 @@ import "./globals.css";
 import SiteFooter from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Personal Website",
+  title: "Payas Vaishnav",
   description: "A minimal personal website and blog.",
 };
 
