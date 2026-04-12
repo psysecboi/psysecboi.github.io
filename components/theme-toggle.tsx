@@ -1,13 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import { Moon, Sun } from "lucide-react";
 
 const STORAGE_KEY = "theme";
+const THEME_CHANGE_EVENT = "theme-change";
 
 type Theme = "light" | "dark";
 
-function getInitialTheme(): Theme {
+function getThemeSnapshot(): Theme {
   if (typeof window === "undefined") {
     return "light";
   }
@@ -22,20 +23,52 @@ function getInitialTheme(): Theme {
     : "light";
 }
 
+function getServerThemeSnapshot(): Theme {
+  return "light";
+}
+
+function subscribeToThemeChange(onStoreChange: () => void): () => void {
+  if (typeof window === "undefined") {
+    return () => {};
+  }
+
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+  const handleChange = () => {
+    onStoreChange();
+  };
+
+  mediaQuery.addEventListener("change", handleChange);
+  window.addEventListener("storage", handleChange);
+  window.addEventListener(THEME_CHANGE_EVENT, handleChange);
+
+  return () => {
+    mediaQuery.removeEventListener("change", handleChange);
+    window.removeEventListener("storage", handleChange);
+    window.removeEventListener(THEME_CHANGE_EVENT, handleChange);
+  };
+}
+
+function setTheme(nextTheme: Theme) {
+  document.documentElement.dataset.theme = nextTheme;
+  window.localStorage.setItem(STORAGE_KEY, nextTheme);
+  window.dispatchEvent(new Event(THEME_CHANGE_EVENT));
+}
+
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("light");
+  const theme = useSyncExternalStore(
+    subscribeToThemeChange,
+    getThemeSnapshot,
+    getServerThemeSnapshot,
+  );
 
   useEffect(() => {
-    const initialTheme = getInitialTheme();
-    setTheme(initialTheme);
-    document.documentElement.dataset.theme = initialTheme;
-  }, []);
+    setTheme(theme);
+  }, [theme]);
 
   const toggleTheme = () => {
     const nextTheme: Theme = theme === "dark" ? "light" : "dark";
     setTheme(nextTheme);
-    document.documentElement.dataset.theme = nextTheme;
-    window.localStorage.setItem(STORAGE_KEY, nextTheme);
   };
 
   return (

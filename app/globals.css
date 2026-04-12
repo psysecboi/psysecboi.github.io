@@ -231,6 +231,15 @@ hr {
   border-radius: 7px;
   padding: 6px 11px;
   font-size: 0.92rem;
+  background: color-mix(in srgb, var(--background) 96%, var(--foreground) 4%);
+  transition: color 140ms ease, background-color 140ms ease, border-color 140ms ease;
+}
+
+.socials a:hover,
+.socials a:focus-visible {
+  color: color-mix(in srgb, var(--foreground) 86%, black 14%);
+  background: color-mix(in srgb, var(--background) 88%, var(--foreground) 12%);
+  border-color: color-mix(in srgb, var(--line) 30%, var(--foreground) 70%);
 }
 
 .recent-posts {
@@ -240,7 +249,12 @@ hr {
 .recent-header {
   display: flex;
   align-items: baseline;
+  justify-content: flex-start;
   gap: 12px;
+}
+
+.recent-header h2 {
+  margin: 0;
 }
 
 .recent-view-all {
@@ -291,6 +305,15 @@ hr {
   border-radius: 7px;
   padding: 6px 11px;
   font-size: 0.92rem;
+  background: color-mix(in srgb, var(--background) 96%, var(--foreground) 4%);
+  transition: color 140ms ease, background-color 140ms ease, border-color 140ms ease;
+}
+
+.site-footer-socials a:hover,
+.site-footer-socials a:focus-visible {
+  color: color-mix(in srgb, var(--foreground) 86%, black 14%);
+  background: color-mix(in srgb, var(--background) 88%, var(--foreground) 12%);
+  border-color: color-mix(in srgb, var(--line) 30%, var(--foreground) 70%);
 }
 
 @media (max-width: 720px) {
