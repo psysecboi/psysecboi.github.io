@@ -36,7 +36,6 @@ export default function BlogsPage() {
           <ThemeToggle />
         </div>
       </header>
-
       <h2 className="collection-title">Collection</h2>
       <p className="muted">A collection of thoughts, notes and interesting reads. These are pieces written by me or interesting things I've come across.</p>
 
