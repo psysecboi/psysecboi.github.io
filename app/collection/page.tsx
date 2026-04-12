@@ -37,7 +37,7 @@ export default function BlogsPage() {
         </div>
       </header>
       <h2 className="collection-title">Collection</h2>
-      <p className="muted">A collection of thoughts, notes and interesting reads. These are pieces written by me or interesting things I've come across.</p>
+      <p className="muted">A collection of thoughts, notes and interesting reads. These are either pieces written by me or interesting things I've come across.</p>
 
       {posts.length === 0 ? (
         <p className="muted">Will be added soon :)</p>
