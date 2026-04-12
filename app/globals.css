@@ -257,6 +257,21 @@ hr {
   margin: 0;
 }
 
+.collection-title {
+  margin-top: 18px;
+}
+
+.recent-heading-link {
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.recent-heading-link:hover,
+.recent-heading-link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+}
+
 .recent-view-all {
   font-size: 0.95rem;
 }

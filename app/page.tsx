@@ -42,8 +42,8 @@ export default function Home() {
         </h1>
         <div className="topbar-right">
           <nav>
-            <Link href="/blogs" className="top-link">
-              Blogs
+            <Link href="/collection" className="top-link">
+              Collection
             </Link>
           </nav>
           <ThemeToggle />
@@ -110,16 +110,20 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="blogs" className="recent-posts">
+      <section id="collection" className="recent-posts">
         <div className="recent-header">
-          <h2>Recent blogs and articles</h2>
-          <Link href="/blogs" className="recent-view-all">
+          <h2>
+            <Link href="/collection" className="recent-heading-link">
+              My collection of blogs and articles
+            </Link>
+          </h2>
+          <Link href="/collection" className="recent-view-all">
             View all →
           </Link>
         </div>
         {/* <p className="muted></p> */}
         {recentPosts.length === 0 ? (
-          <p className="muted">Blogs will be added soon :)</p>
+          <p className="muted">Will be added soon :)</p>
         ) : (
           <ul className="post-list">
             {recentPosts.map((post) => (

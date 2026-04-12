@@ -29,19 +29,19 @@ export default function BlogsPage() {
         </h1>
         <div className="topbar-right">
           <nav>
-            <Link href="/blogs" className="top-link">
-              Blogs
+            <Link href="/collection" className="top-link">
+              Collection
             </Link>
           </nav>
           <ThemeToggle />
         </div>
       </header>
 
-      <h2>Blogs</h2>
-      <p className="muted">All writing in one place.</p>
+      <h2 className="collection-title">Collection</h2>
+      <p className="muted">A collection of thoughts, notes and interesting reads. These are pieces pieces written by me or interesting things I've come across.</p>
 
       {posts.length === 0 ? (
-        <p className="muted">Blogs will be added soon :)</p>
+        <p className="muted">Will be added soon :)</p>
       ) : (
         <ul className="post-list">
           {posts.map((post) => (
