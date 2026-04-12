@@ -1,66 +1,133 @@
+import Link from "next/link";
 import Image from "next/image";
-import styles from "./page.module.css";
+import { AtSign, Globe, Link2, Mail, type LucideIcon } from "lucide-react";
+import { getAllPosts } from "@/lib/blog";
 
 export default function Home() {
+  const posts = getAllPosts();
+
+  const socials: { label: string; href: string; icon: LucideIcon }[] = [
+    { label: "Twitter", href: "https://x.com/psysecboi", icon: AtSign },
+    { label: "LinkedIn", href: "https://linkedin.com/in/payasv", icon: Link2 },
+    { label: "GitHub", href: "https://github.com/psysecboi", icon: Globe },
+    { label: "Email", href: "mailto:replypkv@gmail.com", icon: Mail },
+  ];
+
+  const recentPosts = posts.slice(0, 10);
+
+  const formatDate = (date: string) => {
+    const parsedDate = new Date(date);
+
+    if (Number.isNaN(parsedDate.getTime())) {
+      return date;
+    }
+
+    return parsedDate.toLocaleDateString("en-US", {
+      month: "short",
+      day: "2-digit",
+      year: "numeric",
+    });
+  };
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
+    <main className="page">
+      <header className="topbar">
+        <h1>
+          <Link href="/" className="site-name">
+            Payas Vaishnav
+          </Link>
+        </h1>
+        <nav>
+          <Link href="/blogs" className="top-link">
+            Blogs
+          </Link>
+        </nav>
+      </header>
+
+      <section className="intro-grid">
+        <div className="intro-copy">
+          <p className="tagline">Always learning, leading, and solving problems :)</p>
           <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+            I work on large-scale software, distributed systems and data pipelines, with a focus on
+            performance, reliability, security and system design. I am currently
+            pursuing Computer Science at Pandit Deendayal Energy
+            University.
+          </p>
+          <p>
+            I will be joining <a href="https://www.visa.co.in/" target="_blank" rel="noopener noreferrer">Visa</a> as a System Architect Intern.
+          </p>
+          <p>
+            Previously, I worked at <a href="https://www.jio.com" target="_blank" rel="noopener noreferrer">Jio Platforms</a> as a SDE Intern, on a network instrumentation
+            system for processing and analyzing large-scale network traffic. My
+            work involved building C++ microservices for packet parsing and
+            developing data pipelines using Kafka and Docker.
+          </p>
+          <p>
+            I also build independent systems and explore problems in
+            data processing, system design, and quantitative analysis.
+          </p>
+          <p>
+            I am an active competitive programmer (<a href="https://codeforces.com/profile/psysecboi" target="_blank" rel="noopener noreferrer">Codeforces Specialist</a>, Meta hackercup Round-2 Qualifier) and have led
+            initiatives to teach and scale problem-solving across a large group
+            of students (100+), as a vice-chair of the ACM student chapter at my university.
+          </p>
+          <p>
+            I am interested in designing systems that are simple, efficient,
+            and reliable, and in understanding how they behave under real-world
+            constraints.
+          </p>
+          <p>
+            Alongside this, I have an active interest in geopolitics, enjoy playing the tabla 
+            and ukulele, and follow and play a variety of sports.
           </p>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="profile-wrap">
+          <Image
+            className="profile-image"
+            src="/profile.jpg"
+            alt="Payas Vaishnav"
+            width={1500}
+            height={450}
+          />
+
+          <ul className="socials">
+            {socials.map((social) => (
+              <li key={social.label}>
+                <a href={social.href} target="_blank" rel="noopener noreferrer">
+                  <social.icon size={16} strokeWidth={1.85} aria-hidden="true" />
+                  <span>{social.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section id="blogs" className="recent-posts">
+        <div className="recent-header">
+          <h2>Recent blogs and articles</h2>
+          <Link href="/blogs" className="recent-view-all">
+            View all →
+          </Link>
+        </div>
+        {/* <p className="muted></p> */}
+        {recentPosts.length === 0 ? (
+          <p className="muted">Blogs will be added soon :)</p>
+        ) : (
+          <ul className="post-list">
+            {recentPosts.map((post) => (
+              <li key={post.slug}>
+                <span className="post-date">{formatDate(post.date)}</span>
+                {" : "}
+                <Link className="post-title" href={`/blog/${post.slug}`}>
+                  {post.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+    </main>
   );
 }

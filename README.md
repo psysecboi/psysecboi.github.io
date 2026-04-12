@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Website (Next.js App Router)
 
-## Getting Started
+A minimal, text-first personal website with markdown blog posts.
 
-First, run the development server:
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses static export (`output: "export"`) so the final site is generated in `out/`.
 
-## Learn More
+## Folder Structure
 
-To learn more about Next.js, take a look at the following resources:
+```text
+.
+├─ app/
+│  ├─ blog/
+│  │  └─ [slug]/
+│  │     └─ page.tsx
+│  ├─ globals.css
+│  ├─ layout.tsx
+│  └─ page.tsx
+├─ content/
+│  ├─ building-small.md
+│  └─ welcome.md
+├─ lib/
+│  └─ blog.ts
+├─ .github/
+│  └─ workflows/
+│     └─ deploy.yml
+├─ next.config.ts
+└─ package.json
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Writing Blog Posts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Add a markdown file in `content/`:
 
-## Deploy on Vercel
+```md
+---
+title: Your Post Title
+date: 2026-04-12
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Your post content here.
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The filename becomes the slug, so `my-note.md` is published at `/blog/my-note`.
+
+## Deploy to GitHub Pages
+
+1. Push this project to a GitHub repository.
+2. In GitHub, open **Settings > Pages**.
+3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+4. Ensure your default branch is `main` (or update `.github/workflows/deploy.yml` if different).
+5. Push to `main`; the workflow builds and deploys automatically.
+6. Open the deployed URL shown in the workflow summary.
+
+Notes:
+- For a project repository (`username/repo`), the workflow sets `NEXT_PUBLIC_BASE_PATH` to `/repo` automatically.
+- For a user site repository (`username/username.github.io`), base path is empty automatically.
