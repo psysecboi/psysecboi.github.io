@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
+import ThemeToggle from "@/components/theme-toggle";
 
 function formatDate(date: string) {
   const parsedDate = new Date(date);
@@ -26,11 +27,14 @@ export default function BlogsPage() {
             Payas Vaishnav
           </Link>
         </h1>
-        <nav>
-          <Link href="/blogs" className="top-link">
-            Blogs
-          </Link>
-        </nav>
+        <div className="topbar-right">
+          <nav>
+            <Link href="/blogs" className="top-link">
+              Blogs
+            </Link>
+          </nav>
+          <ThemeToggle />
+        </div>
       </header>
 
       <h2>Blogs</h2>

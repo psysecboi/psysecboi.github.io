@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { AtSign, Globe, Link2, Mail, type LucideIcon } from "lucide-react";
 import { getAllPosts } from "@/lib/blog";
+import ThemeToggle from "@/components/theme-toggle";
 
 export default function Home() {
   const posts = getAllPosts();
@@ -37,11 +38,14 @@ export default function Home() {
             Payas Vaishnav
           </Link>
         </h1>
-        <nav>
-          <Link href="/blogs" className="top-link">
-            Blogs
-          </Link>
-        </nav>
+        <div className="topbar-right">
+          <nav>
+            <Link href="/blogs" className="top-link">
+              Blogs
+            </Link>
+          </nav>
+          <ThemeToggle />
+        </div>
       </header>
 
       <section className="intro-grid">
