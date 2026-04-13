@@ -10,7 +10,7 @@ export default function Home() {
   const posts = getAllPosts();
 
   const socials: { label: string; href: string; icon: IconType }[] = [
-    { label: "Twitter", href: "https://x.com/psysecboi", icon: FaXTwitter },
+    { label: "Twitter", href: "https://x.com/payas_vaishnav", icon: FaXTwitter },
     { label: "LinkedIn", href: "https://linkedin.com/in/payasv", icon: FaLinkedin },
     { label: "GitHub", href: "https://github.com/psysecboi", icon: FaGithub },
     { label: "Email", href: "mailto:replypkv@gmail.com", icon: Mail },
