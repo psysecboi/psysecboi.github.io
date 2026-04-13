@@ -15,7 +15,6 @@ export default function Home() {
     { label: "GitHub", href: "https://github.com/psysecboi", icon: FaGithub },
     { label: "Email", href: "mailto:replypkv@gmail.com", icon: Mail },
   ];
-
   const recentPosts = posts.slice(0, 10);
 
   const formatDate = (date: string) => {
