@@ -326,6 +326,36 @@ hr {
   font-size: 0.95rem;
 }
 
+.not-found-shell {
+  margin: 56px auto 0;
+  max-width: 520px;
+  text-align: center;
+}
+
+.not-found-code {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.not-found-title {
+  color: var(--link);
+  font-size: 2rem;
+  margin: 4px 0 10px;
+}
+
+.not-found-cta {
+  color: var(--foreground);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.not-found-cta:hover,
+.not-found-cta:focus-visible {
+  color: var(--link);
+}
+
 .site-footer {
   border-top: 1px solid var(--line);
   margin-top: auto;
@@ -428,6 +458,14 @@ hr {
   .recent-header {
     flex-wrap: wrap;
     gap: 8px;
+  }
+
+  .not-found-shell {
+    margin-top: 36px;
+  }
+
+  .not-found-title {
+    font-size: 1.6rem;
   }
 
   h2 {
