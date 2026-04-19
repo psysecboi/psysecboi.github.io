@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
-import ThemeToggle from "@/components/theme-toggle";
+import SiteHeader from "@/components/site-header";
 
 function formatDate(date: string) {
   const parsedDate = new Date(date);
@@ -10,6 +10,7 @@ function formatDate(date: string) {
   }
 
   return parsedDate.toLocaleDateString("en-US", {
+    weekday: "short",
     month: "short",
     day: "2-digit",
     year: "numeric",
@@ -21,21 +22,7 @@ export default function BlogsPage() {
 
   return (
     <main className="page">
-      <header className="topbar">
-        <h1>
-          <Link href="/" className="site-name">
-            Payas Vaishnav
-          </Link>
-        </h1>
-        <div className="topbar-right">
-          <nav>
-            <Link href="/collection" className="top-link">
-              Collection
-            </Link>
-          </nav>
-          <ThemeToggle />
-        </div>
-      </header>
+      <SiteHeader />
       <h2 className="collection-title">Collection</h2>
       <p className="muted">A collection of thoughts, notes and interesting reads. These are either pieces written by me or interesting things I've come across.</p>
 
@@ -47,7 +34,7 @@ export default function BlogsPage() {
             <li key={post.slug}>
               <span className="post-date">{formatDate(post.date)}</span>
               {" : "}
-              <Link className="post-title" href={`/blog/${post.slug}`}>
+              <Link className="post-title" href={`/collection/${post.slug}`}>
                 {post.title}
               </Link>
             </li>

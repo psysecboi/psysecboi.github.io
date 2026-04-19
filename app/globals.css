@@ -145,6 +145,26 @@ hr {
   margin-top: 24px;
 }
 
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+
+.post-content pre {
+  overflow-x: auto;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--background) 84%, var(--foreground) 16%);
+  font-size: 0.9em;
+}
+
+.post-content code {
+  font-family: "Cascadia Code", Consolas, Monaco, monospace;
+}
+
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -259,6 +279,36 @@ hr {
 
 .collection-title {
   margin-top: 18px;
+  color: var(--link);
+}
+
+.blog-post-title {
+  margin-top: 18px;
+  color: var(--link);
+}
+
+.post-author {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.post-author-image {
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  object-fit: cover;
+}
+
+.post-author-link {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.post-author-link:hover,
+.post-author-link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
 }
 
 .recent-heading-link {

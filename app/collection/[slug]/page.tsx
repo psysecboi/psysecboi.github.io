@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllPostSlugs, getAllPosts, getPostBySlug } from "@/lib/blog";
+import SiteHeader from "@/components/site-header";
 
 type BlogPostPageProps = {
   params: Promise<{
@@ -33,6 +36,21 @@ export async function generateMetadata({
   };
 }
 
+function formatDate(date: string) {
+  const parsedDate = new Date(date);
+
+  if (Number.isNaN(parsedDate.getTime())) {
+    return date;
+  }
+
+  return parsedDate.toLocaleDateString("en-US", {
+    weekday: "short",
+    month: "short",
+    day: "2-digit",
+    year: "numeric",
+  });
+}
+
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
   const post = await getPostBySlug(slug).catch(() => null);
@@ -43,8 +61,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <main className="page">
-      <h1>{post.title}</h1>
-      <p className="muted">{post.date}</p>
+      <SiteHeader />
+      <h1 className="blog-post-title">{post.title}</h1>
+      <p className="muted">{formatDate(post.date)}</p>
+      <div className="post-author">
+        <Image
+          className="post-author-image"
+          src="/profile.jpg"
+          alt="Payas Vaishnav"
+          width={40}
+          height={40}
+        />
+        <Link href="/" className="post-author-link">
+          Payas Vaishnav
+        </Link>
+      </div>
       <hr />
       <article
         className="post-content"

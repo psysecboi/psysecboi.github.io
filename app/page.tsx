@@ -4,7 +4,7 @@ import { Mail } from "lucide-react";
 import type { IconType } from "react-icons";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { getAllPosts } from "@/lib/blog";
-import ThemeToggle from "@/components/theme-toggle";
+import SiteHeader from "@/components/site-header";
 
 export default function Home() {
   const posts = getAllPosts();
@@ -33,21 +33,7 @@ export default function Home() {
 
   return (
     <main className="page">
-      <header className="topbar">
-        <h1>
-          <Link href="/" className="site-name">
-            Payas Vaishnav
-          </Link>
-        </h1>
-        <div className="topbar-right">
-          <nav>
-            <Link href="/collection" className="top-link">
-              Collection
-            </Link>
-          </nav>
-          <ThemeToggle />
-        </div>
-      </header>
+      <SiteHeader />
 
       <section className="intro-grid">
         <div className="intro-copy">
@@ -129,7 +115,7 @@ export default function Home() {
               <li key={post.slug}>
                 <span className="post-date">{formatDate(post.date)}</span>
                 {" : "}
-                <Link className="post-title" href={`/blog/${post.slug}`}>
+                <Link className="post-title" href={`/collection/${post.slug}`}>
                   {post.title}
                 </Link>
               </li>
