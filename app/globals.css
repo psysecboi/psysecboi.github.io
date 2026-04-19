@@ -154,7 +154,7 @@ hr {
 
 .post-content p:has(img + img) {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 12px;
   margin: 10px 0 18px;
 }
@@ -549,5 +549,14 @@ hr {
 
   h2 {
     font-size: 1.55rem;
+  }
+
+  .post-content p:has(img + img) {
+    gap: 10px;
+  }
+
+  .post-content p:has(img + img) img {
+    width: 100%;
+    max-width: 100%;
   }
 }
