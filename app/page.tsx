@@ -39,7 +39,7 @@ export default function Home() {
         <div className="intro-copy">
           <p className="tagline">Always learning, leading, and solving problems :)</p>
           <p>
-            I work on large-scale software, distributed systems and data pipelines, with a focus on
+            Hey, I am Payas Vaishnav and I work on large-scale software, distributed systems and data pipelines, with a focus on
             performance, reliability, security and system design. I am currently
             pursuing Computer Science at Pandit Deendayal Energy
             University.
