@@ -152,6 +152,20 @@ hr {
   border: 1px solid var(--line);
 }
 
+.post-content p:has(img + img) {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 12px;
+  margin: 10px 0 18px;
+}
+
+.post-content p:has(img + img) img {
+  width: min(230px, 46%);
+  max-width: none;
+  height: auto;
+  margin: 0;
+}
+
 .post-content pre {
   overflow-x: auto;
   padding: 14px;
