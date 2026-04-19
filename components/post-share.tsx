@@ -9,7 +9,7 @@ type PostShareProps = {
   title: string;
 };
 
-const SHARE_BASE_URL = "https://psysecboi.github.io";
+const SHARE_BASE_URL = "https://payasvaishnav.github.io";
 
 export default function PostShare({ slug, title }: PostShareProps) {
   const [copied, setCopied] = useState(false);

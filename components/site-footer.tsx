@@ -3,9 +3,9 @@ import type { IconType } from "react-icons";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 const socials: { label: string; href: string; icon: IconType }[] = [
-  { label: "Twitter", href: "https://x.com/psysecboi", icon: FaXTwitter },
+  { label: "Twitter", href: "https://x.com/payasvaishnav", icon: FaXTwitter },
   { label: "LinkedIn", href: "https://linkedin.com/in/payasv", icon: FaLinkedin },
-  { label: "GitHub", href: "https://github.com/psysecboi", icon: FaGithub },
+  { label: "GitHub", href: "https://github.com/payasvaishnav", icon: FaGithub },
   { label: "Email", href: "mailto:replypkv@gmail.com", icon: Mail },
 ];
 
