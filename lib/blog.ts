@@ -13,6 +13,7 @@ export type BlogPostMeta = {
 
 export type BlogPost = BlogPostMeta & {
   contentHtml: string;
+  readingTimeMinutes: number;
 };
 
 const CONTENT_DIRECTORY = path.join(process.cwd(), "content");
@@ -57,6 +58,8 @@ export async function getPostBySlug(slug: string): Promise<BlogPost> {
   const markdown = getMarkdownBySlug(slug);
   const { data, content } = matter(markdown);
   const processed = await remark().use(html).process(content);
+  const wordCount = content.trim().split(/\s+/).filter(Boolean).length;
+  const readingTimeMinutes = Math.max(1, Math.round(wordCount / 200));
 
   return {
     slug,
@@ -64,5 +67,6 @@ export async function getPostBySlug(slug: string): Promise<BlogPost> {
     date: String(data.date ?? ""),
     published: data.published !== false,
     contentHtml: processed.toString(),
+    readingTimeMinutes,
   };
 }

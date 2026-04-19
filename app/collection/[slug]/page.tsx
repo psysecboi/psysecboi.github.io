@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import { CalendarDays, Clock3 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllPostSlugs, getAllPosts, getPostBySlug } from "@/lib/blog";
 import SiteHeader from "@/components/site-header";
+import PostLove from "@/components/post-love";
+import PostShare from "@/components/post-share";
 
 type BlogPostPageProps = {
   params: Promise<{
@@ -63,7 +66,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <main className="page">
       <SiteHeader />
       <h1 className="blog-post-title">{post.title}</h1>
-      <p className="muted">{formatDate(post.date)}</p>
+      <div className="muted post-meta-line" aria-label="Post date and reading time">
+        <span className="post-meta-item">
+          <CalendarDays size={16} aria-hidden="true" />
+          {formatDate(post.date)}
+        </span>
+        <span className="post-meta-item" aria-hidden="true">
+          •
+        </span>
+        <span className="post-meta-item">
+          <Clock3 size={16} aria-hidden="true" />
+          {post.readingTimeMinutes} min read
+        </span>
+      </div>
       <div className="post-author">
         <Image
           className="post-author-image"
@@ -81,6 +96,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         className="post-content"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
+      <PostLove slug={post.slug} />
+      <PostShare slug={post.slug} title={post.title} />
     </main>
   );
 }
