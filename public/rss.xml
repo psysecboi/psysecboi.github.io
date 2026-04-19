@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Payas Vaishnav - Collection</title>
+    <link>https://example.com/collection/</link>
+    <description>Latest additions to the collection.</description>
+    <language>en-us</language>
+    <atom:link href="https://example.com/rss.xml" rel="self" type="application/rss+xml" xmlns:atom="http://www.w3.org/2005/Atom" />
+    <lastBuildDate>Sun, 19 Apr 2026 13:44:52 GMT</lastBuildDate>
+    <item>
+      <title>My Internship Experience at Jio Platforms Ltd</title>
+      <link>https://example.com/collection/Jio-Internship-Experience/</link>
+      <guid>https://example.com/collection/Jio-Internship-Experience/</guid>
+      <description>Lessons from building network instrumentation and data pipelines during my internship at Jio Platforms.</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
