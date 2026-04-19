@@ -5,7 +5,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllPostSlugs, getAllPosts, getPostBySlug } from "@/lib/blog";
 import SiteHeader from "@/components/site-header";
-import PostLove from "@/components/post-love";
 import PostShare from "@/components/post-share";
 
 type BlogPostPageProps = {
@@ -96,7 +95,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         className="post-content"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
-      <PostLove slug={post.slug} />
       <PostShare slug={post.slug} title={post.title} />
     </main>
   );

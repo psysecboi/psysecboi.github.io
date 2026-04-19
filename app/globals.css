@@ -165,45 +165,6 @@ hr {
   font-family: "Cascadia Code", Consolas, Monaco, monospace;
 }
 
-.post-love {
-  margin-top: 26px;
-  padding-top: 16px;
-  border-top: 1px solid var(--line);
-}
-
-.post-love-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 6px 12px;
-  background: transparent;
-  color: var(--foreground);
-  font: inherit;
-  cursor: pointer;
-}
-
-.post-love-button.liked {
-  color: #b10f5f;
-  border-color: color-mix(in srgb, #b10f5f 55%, var(--line) 45%);
-}
-
-.post-love-heart {
-  font-size: 1.05rem;
-  line-height: 1;
-}
-
-.post-love-number {
-  min-width: 1ch;
-  text-align: center;
-}
-
-.post-love-button:hover,
-.post-love-button:focus-visible {
-  border-color: color-mix(in srgb, var(--line) 30%, var(--foreground) 70%);
-}
-
 .post-meta-line {
   color: var(--muted);
   margin-bottom: 0;
