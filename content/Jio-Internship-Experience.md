@@ -109,6 +109,6 @@ I walked in knowing how to solve problems. I walked out understanding how system
 
 The environment made a big difference. Supportive mentors who were always willing to explain things from scratch, peers who would casually switch from discussing systems to solving codeforces and leetcode problems, and a setup where learning actually felt natural. Also, free beverages, and my cozy workspace definitely helped more than expected.
 
-On a practical level, having Jio on my resume opened doors. It played a role in landing interview opportunities at places like Google and Visa, and more importantly, gave me the confidence to aim for roles in backend, system architecture and system-level engineering.
+On a practical level, having Jio on my resume opened doors. It played a role in landing interview opportunities at places like [Google](https://www.google.com/) and [Visa](https://www.visa.co.in/), and more importantly, gave me the confidence to aim for roles in backend, system architecture and system-level engineering.
 
 **This internship didn’t just add a line to my resume. It gave me direction. Easily one of the best things that’s happened to me so far :)**
