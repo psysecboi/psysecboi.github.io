@@ -96,11 +96,7 @@ export default function Home() {
 
       <section id="collection" className="recent-posts">
         <div className="recent-header">
-          <h2>
-            <Link href="/collection" className="recent-heading-link">
-              My collection of blogs and articles
-            </Link>
-          </h2>
+          <h2>My collection of blogs and articles</h2>
           <Link href="/collection" className="recent-view-all">
             View all →
           </Link>

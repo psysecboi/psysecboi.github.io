@@ -436,19 +436,14 @@ hr {
   text-underline-offset: 0.14em;
 }
 
-.recent-heading-link {
-  color: var(--foreground);
-  text-decoration: none;
-}
-
-.recent-heading-link:hover,
-.recent-heading-link:focus-visible {
-  text-decoration: underline;
-  text-underline-offset: 0.14em;
-}
-
 .recent-view-all {
   font-size: 0.95rem;
+}
+
+.recent-view-all:hover,
+.recent-view-all:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
 }
 
 .not-found-shell {
