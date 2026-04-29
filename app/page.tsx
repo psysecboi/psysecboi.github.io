@@ -10,7 +10,7 @@ export default function Home() {
   const posts = getAllPosts();
 
   const socials: { label: string; href: string; icon: IconType }[] = [
-    { label: "Twitter", href: "https://x.com/payas_vaishnav", icon: FaXTwitter },
+    { label: "Twitter", href: "https://x.com/payasvaishnav", icon: FaXTwitter },
     { label: "LinkedIn", href: "https://linkedin.com/in/payasv", icon: FaLinkedin },
     { label: "GitHub", href: "https://github.com/payasvaishnav", icon: FaGithub },
     { label: "Email", href: "mailto:replypkv@gmail.com", icon: Mail },
@@ -85,9 +85,8 @@ export default function Home() {
           <ul className="socials">
             {socials.map((social) => (
               <li key={social.label}>
-                <a href={social.href} target="_blank" rel="noopener noreferrer">
+                <a href={social.href} target="_blank" rel="noopener noreferrer" title={social.label}>
                   <social.icon size={16} aria-hidden="true" />
-                  <span>{social.label}</span>
                 </a>
               </li>
             ))}
