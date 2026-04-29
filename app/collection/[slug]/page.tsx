@@ -63,9 +63,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <main className="page">
       <SiteHeader />
       <h1 className="blog-post-title">{post.title}</h1>
-      {post.type && (
-        <p className="post-type-tag muted">[<em>{post.type}</em>]</p>
-      )}
       <div className="muted post-meta-line" aria-label="Post date and reading time">
         <span className="post-meta-item">
           <CalendarDays size={16} aria-hidden="true" />
