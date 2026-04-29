@@ -3,7 +3,7 @@ title: My Internship Experience at Jio Platforms Ltd
 date: 2026-04-20
 published: true
 type: Original
-description: A short write-up on my software engineering internship at Jio, sharing my experience, learnings, and key takeaways.
+description: A write-up on my software engineering internship at Jio, sharing my experience, learnings, and key takeaways.
 summary: Journery of my internship at Jio Platforms.
 ---
 ## Introduction
