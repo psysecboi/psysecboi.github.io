@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useSyncExternalStore } from "react";
+import { useSyncExternalStore } from "react";
 import { Moon, Sun } from "lucide-react";
 
 const STORAGE_KEY = "theme";
@@ -61,10 +61,6 @@ export default function ThemeToggle() {
     getThemeSnapshot,
     getServerThemeSnapshot,
   );
-
-  useEffect(() => {
-    setTheme(theme);
-  }, [theme]);
 
   const toggleTheme = () => {
     const nextTheme: Theme = theme === "dark" ? "light" : "dark";
