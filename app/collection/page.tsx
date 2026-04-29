@@ -16,6 +16,7 @@ function formatDate(date: string) {
   });
 }
 
+
 export default function BlogsPage() {
   const posts = getAllPosts();
 
