@@ -10,7 +10,6 @@ function formatDate(date: string) {
   }
 
   return parsedDate.toLocaleDateString("en-US", {
-    weekday: "short",
     month: "short",
     day: "2-digit",
     year: "numeric",
@@ -25,7 +24,8 @@ export default function BlogsPage() {
     <main className="page">
       <SiteHeader />
       <h2 className="collection-title">Collection</h2>
-      <p className="muted">A collection of thoughts, notes and interesting reads. These are either pieces written by me or interesting things I've come across.</p>
+      <p className="muted">A collection of thoughts and interesting reads. These are either written by me or interesting things I've come across.</p>
+      <hr className="collection-sep" aria-hidden="true" />
 
       {posts.length === 0 ? (
         <p className="muted">Will be added soon :)</p>
@@ -33,11 +33,20 @@ export default function BlogsPage() {
         <ul className="post-list">
           {posts.map((post) => (
             <li key={post.slug}>
-              <span className="post-date">{formatDate(post.date)}</span>
-              {" : "}
-              <Link className="post-title" href={`/collection/${post.slug}`}>
-                {post.title}
-              </Link>
+              <div className="post-item">
+                <div className="post-header-line">
+                  <span className="post-date">{formatDate(post.date)} :</span>
+                  <Link className="post-title" href={`/collection/${post.slug}`}>
+                    {post.title}
+                  </Link>
+                  {post.type && (
+                    <span className="post-type-tag">[<em>{post.type}</em>]</span>
+                  )}
+                </div>
+                {post.description && (
+                  <p className="post-description">{post.description}</p>
+                )}
+              </div>
             </li>
           ))}
         </ul>

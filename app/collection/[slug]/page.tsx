@@ -34,7 +34,7 @@ export async function generateMetadata({
 
   return {
     title: matchingPost.title,
-    description: matchingPost.title,
+    description: matchingPost.description || matchingPost.title,
   };
 }
 
@@ -45,12 +45,10 @@ function formatDate(date: string) {
     return date;
   }
 
-  return parsedDate.toLocaleDateString("en-US", {
-    weekday: "short",
-    month: "short",
-    day: "2-digit",
-    year: "numeric",
-  });
+  const day = String(parsedDate.getDate()).padStart(2, "0");
+  const month = String(parsedDate.getMonth() + 1).padStart(2, "0");
+  const year = parsedDate.getFullYear();
+  return `${day}/${month}/${year}`;
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -65,6 +63,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <main className="page">
       <SiteHeader />
       <h1 className="blog-post-title">{post.title}</h1>
+      {post.type && (
+        <p className="post-type-tag muted">[<em>{post.type}</em>]</p>
+      )}
       <div className="muted post-meta-line" aria-label="Post date and reading time">
         <span className="post-meta-item">
           <CalendarDays size={16} aria-hidden="true" />

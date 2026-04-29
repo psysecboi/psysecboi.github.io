@@ -9,6 +9,8 @@ export type BlogPostMeta = {
   title: string;
   date: string;
   published: boolean;
+  type?: "Original" | "Curated";
+  description?: string;
 };
 
 export type BlogPost = BlogPostMeta & {
@@ -38,6 +40,8 @@ export function getAllPosts(): BlogPostMeta[] {
         title: String(data.title ?? slug),
         date: String(data.date ?? ""),
         published: data.published !== false,
+        type: data.type ?? "Original",
+        description: String(data.description ?? ""),
       };
     })
     .filter((post) => post.published)
@@ -66,6 +70,8 @@ export async function getPostBySlug(slug: string): Promise<BlogPost> {
     title: String(data.title ?? slug),
     date: String(data.date ?? ""),
     published: data.published !== false,
+    type: data.type ?? "Original",
+    description: String(data.description ?? ""),
     contentHtml: processed.toString(),
     readingTimeMinutes,
   };

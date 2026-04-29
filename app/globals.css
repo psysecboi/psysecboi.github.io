@@ -136,9 +136,54 @@ hr {
   text-decoration: none;
 }
 
+.post-title:hover,
+.post-title:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
 .post-date {
   color: var(--muted);
   font-size: 0.95em;
+}
+
+.post-type-tag {
+  display: inline;
+  color: var(--muted);
+  font-size: 0.95em;
+  margin-left: 8px;
+  font-style: normal;
+}
+
+.post-header-line {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.post-header-line .post-title {
+  margin-left: 4px;
+}
+
+.post-item {
+  margin-bottom: 12px;
+}
+
+.post-description {
+  color: var(--muted);
+  font-size: 0.95em;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+
+.collection-sep {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--line) 60%, transparent), transparent);
+  margin: 18px 0 22px;
+  width: 100%;
+  opacity: 0.9;
 }
 
 .post-content {
