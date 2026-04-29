@@ -314,6 +314,12 @@ hr {
   font-weight: 600;
 }
 
+.top-link:hover,
+.top-link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 .intro-grid {
   margin-top: 18px;
   display: grid;
