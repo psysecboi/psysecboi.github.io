@@ -1,0 +1,57 @@
+Love the approach. Here's the full content plan section by section, with exactly what to add where:
+
+---
+
+**1. The Problem — Scalar Code**
+- 3–4 lines explaining one instruction = one value, CPU loops
+- **Code snippet** — simple C loop summing an array (scalar)
+- **Diagram (Excalidraw)** — CPU processing one element at a time, visually linear
+
+---
+
+**2. What SIMD Is**
+- 3–4 lines, one instruction fans out across lanes
+- **Diagram (Excalidraw)** — side-by-side: scalar (1 lane) vs SIMD (8 lanes), same clock cycle
+- No code yet, concept first
+
+---
+
+**3. The Hardware Reality**
+- **Table** — SSE (128-bit) → AVX2 (256-bit) → AVX-512 (512-bit) → NEON (ARM), register width, floats per op
+- **Diagram (Excalidraw)** — a 256-bit register split into 8×32-bit lanes, labeled cleanly
+
+---
+
+**4. How You Actually Use It**
+- **Two code snippets side by side** — same sum loop: compiler auto-vectorized vs AVX2 intrinsic manually written
+- Brief note on what the compiler gets right and where it fails you
+
+---
+
+**5. The Catch**
+- Bullet-driven, tight prose
+- **No diagram needed** — this is pure engineering judgment, words are enough
+
+---
+
+**6. Case Study — simdjson**
+- **Diagram (Excalidraw)** — traditional parser (char by char) vs simdjson two-stage pipeline
+- **Real benchmark table** — simdjson vs RapidJSON vs nlohmann (GB/s numbers)
+- One code snippet — what the simdjson API looks like to the caller (simple, clean)
+
+---
+
+**7. When to Use SIMD**
+- **Decision tree (Excalidraw)** — 3 questions: uniform data? repeated op? hot path? → Yes/No branches → use SIMD / don't bother
+
+---
+
+**8. Key Takeaways**
+- 3 sharp bullets, no visual needed
+- Maybe a one-liner quote to land it
+
+---
+
+Total: ~4 Excalidraw diagrams, 3–4 code snippets, 2 tables. Enough to teach, not enough to overwhelm.
+
+Which section do you want to write first?

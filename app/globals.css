@@ -198,6 +198,14 @@ hr {
   border: 1px solid var(--line);
 }
 
+.post-content img[alt="pic2"] {
+  max-width: 650px;
+}
+
+.post-content img[alt="pic1"] {
+  max-width: 650px;
+}
+
 .post-content p:has(img + img) {
   display: flex;
   flex-wrap: wrap;
@@ -219,6 +227,12 @@ hr {
   border: 1px solid var(--line);
   background: color-mix(in srgb, var(--background) 84%, var(--foreground) 16%);
   font-size: 0.9em;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  white-space: pre-wrap; /* preserve formatting but allow wrapping to avoid extra empty space */
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .post-content code {
