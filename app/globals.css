@@ -197,14 +197,14 @@ hr {
   border-radius: 12px;
   border: 1px solid var(--line);
 }
-
+/* 
 .post-content img[alt="pic2"] {
   max-width: 650px;
 }
 
 .post-content img[alt="pic1"] {
   max-width: 650px;
-}
+} */
 
 .post-content p:has(img + img) {
   display: flex;
