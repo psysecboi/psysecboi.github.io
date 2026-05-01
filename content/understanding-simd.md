@@ -104,7 +104,7 @@ int main() {
 // Use official documentation to learn how to code :)
 ```
 
-For large, uniform data like JSON, SIMD shifts the cost from per element → per chunk, and the difference shows directly in execution time.
+For large, uniform data like JSON, SIMD shifts the cost from per element to per chunk, and the difference shows directly in execution time.
 
 This is SIMD as a design choice, not a micro-optimization.
 
