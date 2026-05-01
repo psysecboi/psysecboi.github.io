@@ -85,7 +85,7 @@ Traditional parsers (like [nlohmann](https://github.com/nlohmann/json)) process 
 
 ![pic3](/SIMD/pic3.png)
 
-Based on the above benchmarks, simdjson consistently outperforms standard libraries like nlohmann by a factor of roughly 4.7x. (**may be a bit inconsistent*)
+Based on the above benchmarks, simdjson consistently outperforms standard libraries like nlohmann by a factor of roughly 4.7x. (**maybe a bit inconsistent*)
 
 **Developer Experience:** The internal SIMD complexity is hidden behind an intuitive and clean programming interface. You achieve record-breaking performance while writing simple and readable C++ code.
 
