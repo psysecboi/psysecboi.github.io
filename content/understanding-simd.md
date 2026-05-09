@@ -4,7 +4,7 @@ date: 2026-05-01
 published: true
 type: Original
 description: A first-principles look at SIMD and how modern CPUs actually process data.
-summary: Add a short 1-2 line summary.
+summary: Write-up on SIMD
 ---
 
 Modern CPUs don’t operate on single values; they operate on wide registers. Most code ignores this entirely. This piece builds SIMD from first principles, shows how the hardware actually executes it, and grounds it with a real system where the difference is measurable.

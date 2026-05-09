@@ -24,7 +24,7 @@ export default function BlogsPage() {
     <main className="page">
       <SiteHeader />
       <h2 className="collection-title">Collection</h2>
-      <p className="muted">A collection of thoughts and interesting reads. These are either written by me or interesting things I've come across.</p>
+      <p className="muted">A collection of thoughts and interesting reads.</p>
       <hr className="collection-sep" aria-hidden="true" />
 
       {posts.length === 0 ? (
