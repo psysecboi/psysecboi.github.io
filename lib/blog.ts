@@ -62,6 +62,11 @@ export async function getPostBySlug(slug: string): Promise<BlogPost> {
   const markdown = getMarkdownBySlug(slug);
   const { data, content } = matter(markdown);
   const processed = await remark().use(html).process(content);
+  // Add target and rel attributes to external links so they open in a new tab.
+  // We only modify anchors without an existing `target` attribute and
+  // whose `href` is protocol-relative or starts with http/https.
+  let contentHtml = processed.toString();
+  contentHtml = contentHtml.replace(/<a([^>]*?)href="((?:https?:)?\/\/[^"\s]+)"(?![^>]*\btarget=)([^>]*)>/g, '<a$1href="$2"$3 target="_blank" rel="noopener noreferrer">');
   const wordCount = content.trim().split(/\s+/).filter(Boolean).length;
   const readingTimeMinutes = Math.max(1, Math.round(wordCount / 200));
 
@@ -72,7 +77,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost> {
     published: data.published !== false,
     type: data.type ?? "Original",
     description: String(data.description ?? ""),
-    contentHtml: processed.toString(),
+    contentHtml,
     readingTimeMinutes,
   };
 }
