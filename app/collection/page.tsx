@@ -39,9 +39,7 @@ export default function BlogsPage() {
                   <Link className="post-title" href={`/collection/${post.slug}`}>
                     {post.title}
                   </Link>
-                  {post.type && (
-                    <span className="post-type-tag">[<em>{post.type}</em>]</span>
-                  )}
+                  {/* Removed post.type tag display per request */}
                 </div>
                 {post.description && (
                   <p className="post-description">{post.description}</p>
